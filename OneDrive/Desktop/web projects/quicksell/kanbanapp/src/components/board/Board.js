@@ -13,7 +13,7 @@ import Todo from '../../assets/To-do.svg';
 import inprogress from '../../assets/in-progress.svg';
 
 
-export default function Board({ data, title, userdata }) {
+export default function Board({ data, title, userdata ,byUser}) {
   return (
     <div className="board">
       <div className="board_top">
@@ -28,6 +28,7 @@ export default function Board({ data, title, userdata }) {
            {title==="Done" && <img src={Done} alt="done"/>}
            {title==="Cancelled" && <img src={Cancelled} alt="cancelled"/>}
            {title==="Backlog" && <img src={Backlog} alt="backlog"/>}
+           {byUser && <div style={{width:'18px',height:'18px',backgroundColor:'black',borderRadius:'50%',color:'white',display:'flex',justifyContent:'center',alignItems:'center'}}>{title[0]}</div>}
           <p>{title} </p>
           <span>{data?.length}</span>
         </div>
@@ -60,7 +61,7 @@ export default function Board({ data, title, userdata }) {
       </div>
       <div className="board_container">
         {data.map((ele) => {
-          return <Ticket userdata={userdata} ticketData={ele} />;
+          return <Ticket userdata={userdata} ticketData={ele} byUser={byUser}/>;
         })}
       </div>
     </div>

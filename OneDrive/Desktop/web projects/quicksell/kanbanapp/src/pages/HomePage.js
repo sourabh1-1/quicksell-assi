@@ -29,9 +29,9 @@ export default function HomePage() {
     for (const key in groupedTickets) {
       groupedTickets[key].sort((a, b) => {
         if (sortBy === "priority") {
-          return a.priority - b.priority; // Sort by priority (ascending)
+          return a.priority - b.priority; //priority (ascending)
         } else if (sortBy === "title") {
-          return a.title.localeCompare(b.title); // Sort by title (alphabetical order)
+          return a.title.localeCompare(b.title); //title (alphabetical order)
         }
       });
     }
@@ -61,6 +61,7 @@ export default function HomePage() {
                 (ele) => {
                   return (
                     <Board
+                      byUser={false}
                       key={ele}
                       userdata={data["users"]}
                       data={groupedData[ele] ? groupedData[ele] : []}
@@ -82,6 +83,7 @@ export default function HomePage() {
               {data?.users.map((ele) => {
                 return (
                   <Board
+                    byUser={true}
                     key={ele["id"]}
                     title={ele["name"]}
                     userdata={data["users"]}
@@ -108,6 +110,7 @@ export default function HomePage() {
               ].map((ele, idx) => {
                 return (
                   <Board
+                    byUser={false}
                     key={ele.value}
                     userdata={data["users"]}
                     data={groupedData[ele.value] ? groupedData[ele.value] : []}

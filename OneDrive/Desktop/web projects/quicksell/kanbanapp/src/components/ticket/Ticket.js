@@ -1,7 +1,7 @@
 import React from 'react'
 import './ticket.css'
 
-export default function Ticket({ticketData,userdata}) {
+export default function Ticket({ticketData,userdata,byUser}) {
     const getname=()=>{
         for(let i=0;i<userdata?.length;i++){
             if(userdata[i]["id"]===ticketData["userId"]){
@@ -14,9 +14,9 @@ export default function Ticket({ticketData,userdata}) {
         <div className="card-container">
             <div className="card-id-wrapper">
                 <div className="card-id">{ticketData.id}</div>
-                <div style={{backgroundColor:'black',height:'20px',width:'20px',borderRadius:'50%'}}>
+                {byUser===false && <div style={{backgroundColor:'black',height:'20px',width:'20px',borderRadius:'50%'}}>
                     <p style={{color:'white',margin:'-2px 0px 0px 4px'}}>{getname()}</p>
-                </div>
+                </div>}
             </div>
             <div className="card-title">
                 {ticketData.title}
