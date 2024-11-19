@@ -55,18 +55,21 @@ export default function HomePage() {
       return (
         <>
           <DropDown view={view} setView={setView} />
-          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-            {["Backlog", "Todo", "In Progress", "Done", "Cancelled"].map(
-              (ele) => {
-                return (
-                  <Board
-                    key={ele}
-                    data={groupedData[ele] ? groupedData[ele] : []}
-                    title={ele}
-                  />
-                );
-              }
-            )}
+          <div style={{ backgroundColor: "whitesmoke", overflow: "auto" }}>
+            <div style={{ display: "flex", margin: "2rem" }}>
+              {["Backlog", "Todo", "In Progress", "Done", "Cancelled"].map(
+                (ele) => {
+                  return (
+                    <Board
+                      key={ele}
+                      userdata={data["users"]}
+                      data={groupedData[ele] ? groupedData[ele] : []}
+                      title={ele}
+                    />
+                  );
+                }
+              )}
+            </div>
           </div>
         </>
       );
@@ -74,16 +77,19 @@ export default function HomePage() {
       return (
         <>
           <DropDown view={view} setView={setView} />
-          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-            {data?.users.map((ele) => {
-              return (
-                <Board
-                  key={ele["id"]}
-                  title={ele["name"]}
-                  data={groupedData[ele["id"]] ? groupedData[ele["id"]] : []}
-                />
-              );
-            })}
+          <div style={{ backgroundColor: "whitesmoke", overflow: "auto" }}>
+            <div style={{ display: "flex", margin: "2rem" }}>
+              {data?.users.map((ele) => {
+                return (
+                  <Board
+                    key={ele["id"]}
+                    title={ele["name"]}
+                    userdata={data["users"]}
+                    data={groupedData[ele["id"]] ? groupedData[ele["id"]] : []}
+                  />
+                );
+              })}
+            </div>
           </div>
         </>
       );
@@ -91,22 +97,25 @@ export default function HomePage() {
       return (
         <>
           <DropDown view={view} setView={setView} />
-          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-            {[
-              { title: "No priority", value: 0 },
-              { title: "Urgent", value: 4 },
-              { title: "High", value: 3 },
-              { title: "Medium", value: 2 },
-              { title: "Low", value: 1 },
-            ].map((ele, idx) => {
-              return (
-                <Board
-                  key={ele.value}
-                  data={groupedData[ele.value] ? groupedData[ele.value] : []}
-                  title={ele.title}
-                />
-              );
-            })}
+          <div style={{ backgroundColor: "whitesmoke", overflow: "auto" }}>
+            <div style={{ display: "flex", margin: "2rem" }}>
+              {[
+                { title: "No priority", value: 0 },
+                { title: "Urgent", value: 4 },
+                { title: "High", value: 3 },
+                { title: "Medium", value: 2 },
+                { title: "Low", value: 1 },
+              ].map((ele, idx) => {
+                return (
+                  <Board
+                    key={ele.value}
+                    userdata={data["users"]}
+                    data={groupedData[ele.value] ? groupedData[ele.value] : []}
+                    title={ele.title}
+                  />
+                );
+              })}
+            </div>
           </div>
         </>
       );

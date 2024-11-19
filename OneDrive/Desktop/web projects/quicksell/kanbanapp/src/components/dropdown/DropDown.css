@@ -1,8 +1,7 @@
 
 .nav {
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
     width: 100%;
-    border-bottom: 1px solid var(--grey1);
 }
 .nav-container {
     width: 95%;
@@ -15,13 +14,12 @@
     justify-content: space-between;
     padding: 0.4rem 0.8rem;
     width: fit-content;
-    border: 1px solid var(--grey1);
-    box-shadow: 0px 0px 5px 2px var(--grey1);
+    border: 1px solid black;
     border-radius: 0.4rem;
     cursor: pointer;
 }
 .nav-disp-btn:hover {
-    box-shadow: 0 0 10px 5px var(--grey3);
+    box-shadow: 0 0 1px 0.4px gray;
 }
 .nav-disp-icon {
     display: flex;
@@ -32,7 +30,7 @@
 }
 .nav-disp-filter > img {
     height: 14px;
-    fill: var(--grey1);
+    fill: black;
 }
 .nav-disp-heading {
     font-weight: 500;
@@ -50,8 +48,8 @@
     z-index: 2;
     margin-top: 0.6rem;
     padding: 0.8rem 1rem;
-    background-color: var(--grey3);
-    border: 1px solid var(--grey1);
+    background-color:gainsboro;
+    border: 1px solid black;
     border-radius: 0.5rem;
 }
 .nav-disp-dropdown-show {
@@ -67,64 +65,14 @@
     margin-bottom: 0.5rem;
 }
 .nav-dropdown-category {
-    color: var(--textgrey);
+    color: black;
     font-weight: 500;
 }
 .nav-selector {
     padding: 0.3rem;
     width: 100px;
     border-radius: 0.3rem;
-    border-color: var(--grey1);
+    border-color: black;
     font-weight: 600;
     cursor: pointer;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    .nav-container {
-        width: 100%;
-        padding: 0.5rem 1rem;
-    }
-
-    .nav-disp-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 0.6rem 1rem;
-    }
-
-    .nav-disp-filters {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-    }
-
-    .nav-disp-filters:first-child {
-        margin-bottom: 1rem;
-    }
-
-    .nav-disp-dropdown {
-        width: 100%;
-        padding: 1rem;
-        margin-top: -1rem;
-    }
-
-    .nav-selector {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-disp-btn {
-        padding: 0.4rem;
-        font-size: 0.9rem;
-    }
-
-    .nav-disp-filter > img,
-    .nav-disp-drop > img {
-        height: 12px;
-    }
-
-    .nav-selector {
-        font-size: 0.8rem;
-    }
 }

@@ -1,12 +1,22 @@
 import React from 'react'
 import './ticket.css'
 
-export default function Ticket({ticketData}) {
+export default function Ticket({ticketData,userdata}) {
+    const getname=()=>{
+        for(let i=0;i<userdata?.length;i++){
+            if(userdata[i]["id"]===ticketData["userId"]){
+                return userdata[i]["name"][0];
+            }
+        }
+    }
   return (
     <>
         <div className="card-container">
             <div className="card-id-wrapper">
                 <div className="card-id">{ticketData.id}</div>
+                <div style={{backgroundColor:'black',height:'20px',width:'20px',borderRadius:'50%'}}>
+                    <p style={{color:'white',margin:'-2px 0px 0px 4px'}}>{getname()}</p>
+                </div>
             </div>
             <div className="card-title">
                 {ticketData.title}
